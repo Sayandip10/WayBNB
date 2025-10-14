@@ -277,8 +277,9 @@ body {
   align-items: center;
   position: relative;
   flex-wrap: wrap;
+  margin-top: 1.5rem;
+  margin-bottom: 2rem;
 }
-
 #filters-container {
   overflow: hidden;
   flex: 1;
@@ -637,4 +638,157 @@ body {
   .copyright-text {
     text-align: center;
   }
+}
+
+/* --- New Search Bar Styles --- */
+.search-bar {
+  display: flex;
+  align-items: center;
+  border: 1px solid #ddd;
+  border-radius: 40px;
+  padding: 8px;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+  width: 100%;
+  max-width: 850px; /* Adjust this width as needed */
+  margin: 0 auto; /* Centers the search bar */
+}
+
+.search-bar-item {
+  flex: 1;
+  padding: 0 24px;
+  position: relative;
+}
+
+/* Add dividers between items */
+.search-bar-item:not(:last-of-type):not(.guest-item) {
+  border-right: 1px solid #ddd;
+}
+
+/* No divider for the last text item */
+.guest-item {
+  border-right: none;
+}
+
+.search-bar-item label {
+  display: block;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.search-bar-item input[type="text"],
+.search-bar-item .placeholder-text {
+  border: none;
+  outline: none;
+  background: none;
+  font-size: 14px;
+  color: #717171;
+  width: 100%;
+  padding: 2px 0 0 0;
+}
+
+/* Style for the input's placeholder */
+.search-bar-item input::placeholder {
+  color: #717171;
+}
+
+/* New circular search button */
+.search-btn-new {
+  background-color: #fe424d; /* Your brand color */
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  margin-left: 10px; /* Space between last item and button */
+  flex-shrink: 0; /* Prevents the button from shrinking */
+}
+/* Fix for Litepicker visibility */
+.litepicker {
+  z-index: 9999 !important;
+}
+
+/* --- Guest Popover Styles --- */
+.nav-search {
+  position: relative; /* Needed for positioning the popover */
+}
+
+.guest-popover {
+  position: absolute;
+  top: 75px; /* Position it below the search bar */
+  right: 0;
+  width: 350px;
+  background-color: white;
+  border-radius: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  padding: 1rem 1.5rem;
+  z-index: 1000;
+  display: none; /* Hidden by default */
+}
+
+.guest-popover.show {
+  display: block; /* Class to show the popover */
+}
+
+.guest-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+  border-bottom: 1px solid #ebebeb;
+}
+
+.guest-row:last-child {
+  border-bottom: none;
+}
+
+.guest-label {
+  font-weight: 600;
+}
+
+.guest-desc {
+  color: #717171;
+  font-size: 0.9rem;
+}
+
+.guest-counter {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.guest-counter span {
+  width: 20px;
+  text-align: center;
+  font-size: 1rem;
+}
+
+.counter-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 1px solid #b0b0b0;
+  background-color: white;
+  font-size: 1.2rem;
+  color: #717171;
+  cursor: pointer;
+}
+
+.counter-btn:hover {
+  border-color: #222;
+}
+
+.counter-btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Fix for Litepicker visibility */
+.litepicker {
+  z-index: 9999 !important;
 }

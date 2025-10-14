@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-md bg-body-light border-bottom sticky-top">
+<nav class="navbar navbar-expand-md bg-body-light sticky-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="/listings"><i class="fa-regular fa-compass"></i></a>
         <div class="navbar-nav web-title">
@@ -8,15 +8,67 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-            <div class="nav-search nav-hovernav-search-search">
-                <form class="d-flex" role="search" action="/listings/search" method="get" id="searchBox">
-                    <input class="form-control me-2 search-inp" type="search"
-                        placeholder="Search Location | Title | Price" aria-label="Search" name="q" id="mySearchInput" />
-                    <button class="btn search-btn" type="submit" id="search">
-                        <i class="fa-solid fa-magnifying-glass"></i>Search
+
+            <div class="nav-search">
+                <form action="/listings/search" method="get" class="search-bar">
+                    <div class="search-bar-item">
+                        <label for="search-dest">Where</label>
+                        <input type="text" id="search-dest" name="q" placeholder="Search destinations">
+                    </div>
+                    <div class="search-bar-item" id="checkin-btn">
+                        <label>Check in</label>
+                        <div class="placeholder-text" id="checkin-text">Add dates</div>
+                    </div>
+                    <div class="search-bar-item" id="checkout-btn">
+                        <label>Check out</label>
+                        <div class="placeholder-text" id="checkout-text">Add dates</div>
+                    </div>
+                    <div class="search-bar-item guest-item" id="who-btn">
+                        <label>Who</label>
+                        <div class="placeholder-text" id="who-text">Add guests</div>
+                    </div>
+                    <button class="search-btn-new" type="submit">
+                        <i class="fa-solid fa-magnifying-glass"></i>
                     </button>
                 </form>
+
+                <div class="guest-popover" id="guest-popover">
+                    <div class="guest-row">
+                        <div>
+                            <div class="guest-label">Adults</div>
+                            <div class="guest-desc">Ages 13 or above</div>
+                        </div>
+                        <div class="guest-counter">
+                            <button type="button" class="counter-btn" data-action="decrement" data-target="adults">-</button>
+                            <span id="adults-count">0</span>
+                            <button type="button" class="counter-btn" data-action="increment" data-target="adults">+</button>
+                        </div>
+                    </div>
+                    <div class="guest-row">
+                        <div>
+                            <div class="guest-label">Children</div>
+                            <div class="guest-desc">Ages 2–12</div>
+                        </div>
+                        <div class="guest-counter">
+                            <button type="button" class="counter-btn" data-action="decrement" data-target="children">-</button>
+                            <span id="children-count">0</span>
+                            <button type="button" class="counter-btn" data-action="increment" data-target="children">+</button>
+                        </div>
+                    </div>
+                     <div class="guest-row">
+                        <div>
+                            <div class="guest-label">Infants</div>
+                            <div class="guest-desc">Under 2</div>
+                        </div>
+                        <div class="guest-counter">
+                            <button type="button" class="counter-btn" data-action="decrement" data-target="infants">-</button>
+                            <span id="infants-count">0</span>
+                            <button type="button" class="counter-btn" data-action="increment" data-target="infants">+</button>
+                        </div>
+                    </div>
+                </div>
             </div>
+            
             <div class="navbar-nav">
                 <div class="dropdown">
                     <button class="btn btn-success dropdown-toggle" type="button" data-bs-toggle="dropdown"
@@ -56,10 +108,10 @@
                                         &nbsp; &nbsp;<%= currUser.username%>
                                     </b></h6>
                                 <a class="nav-link" href="/logout"><i
-                                        class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Log out</b></a>
+                                            class="fa-solid fa-arrow-right-from-bracket"></i>&nbsp;<b>Log out</b></a>
                                 <% } %>
                                     <a class="nav-link" href="/listings/new"><i
-                                            class="fa-solid fa-circle-plus"></i>&nbsp; &nbsp;<strong>Airbnb your
+                                                class="fa-solid fa-circle-plus"></i>&nbsp; &nbsp;<strong>Airbnb your
                                             home</strong></a>
                 </div>
             </div>
